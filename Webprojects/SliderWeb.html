@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .slider-container {
+            width: 500px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .btn {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+    </style>
+       x
+</head>
+<body style="background-color: #000">
+<center>
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide"><img src="slide1.jpg" alt="Image 1"></div>
+        <div class="slide"><img src="slide2.jpg" alt="Image 2"></div>
+        <div class="slide"><img src="slide3.jpg" alt="Image 3"></div>
+        <div class="slide"><img src="slide4.jpg" alt="Image 4"></div>
+        <div class="slide"><img src="slide5.jpg" alt="Image 5"></div>
+        <div class="slide"><img src="slide6.jpg" alt="Image 6"></div>
+        <div class="slide"><img src="slide7.jpg" alt="Image 7"></div>
+        <div class="slide"><img src="slide8.jpg" alt="Image 8"></div>
+        <div class="slide"><img src="slide9.jpg" alt="Image 9"></div>
+    </div>
+</div>
+<div class="btn prev" onclick="prevSlide()">&#8249; Previous</div>
+<div class="btn next" onclick="nextSlide()">Next &#8250;</div>
+
+<script>
+
+    let currentSlide = 0;
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlider();
+        }
+    }
+
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+            updateSlider();
+        }
+    }
+
+    function updateSlider() {
+        const slider = document.querySelector('.slider');
+        const slideWidth = document.querySelector('.slide').offsetWidth;
+        slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        var previousButton = document.getElementById("previous-button");
+    }
+</script>
+</center>
+</body>
+</html>
